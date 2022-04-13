@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="idex.css">
+    <title>Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <article>
+        <div class="cabeçalho">
+            <h1>Nome do Hotel</h1>
+            <p><img class="logo" src="vscode-icons_file-type-reactjs.svg" alt=""></p>
+        </div>
+
+        <div class="info">
+            <div class="imagens">
+                <ul>
+                    <li><img class="img" src="img1.jpg" alt=""></li>
+                    <li><img class="img" src="img2.jpg" alt=""></li>
+                    <li><img class="img" src="img3.jpg" alt=""></li>
+                    <li><img class="img" src="img1.jpg" alt=""></li>
+                </ul>
+            </div>
+
+            <div class="formu">
+                <form action="">
+                        <div class="dados">
+                            <h2>Dados</h2>
+                            <div class="org">
+                            <input class="coletor" id="nome" type="text" placeholder="Nome completo">
+                            <input class="coletor" id="CPF" type="text" placeholder="CPF ou CNPJ">
+                            </div>
+                            <div class="org">
+                            <input class="coletor" id="telefone" type="text" placeholder="Telefone">
+                            <input class="coletor" id="email" type="text" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="endereço">
+                            <h2>Endereço</h2>
+                            <div class="org">
+                            <input class="coletor" id="logradouro" type="text" placeholder="Logradouro">
+                            <input class="coletor" id="numero" type="text" placeholder="Número">
+                            </div>
+                            <div class="org">
+                            <input class="coletor" id="cep" type="text" placeholder="CEP">
+                            <input class="coletor" id="cidade" type="text" placeholder="Cidade">
+                            </div>
+                            <div class="org">
+                            <input class="coletor" id="bairro" type="text" placeholder="Bairro">
+                            <input class="coletor" id="referencia" type="text" placeholder="Ponto de referência">
+                            </div>
+                        </div>
+                </form>
+
+                <div class="coletadata">
+                    <div class="entrada">
+                        <h2>Disponibilidade</h2>
+                        <div class="org2">
+                        <label>Data de Entrada:</label>
+                        <input class="data" id="dataentrada" type="date">
+                        <label>Data de Saída:</label>
+                        <input class="data" id="datasaida" type="date">
+                        </div>
+                        <div class="org2">
+                        <label>Qº Quartos Individuais:</label>
+                        <input class="data" id="individuais" type="number">
+                        <label>Qº Quartos Duplos:</label>
+                        <input class="data" id="duplos" type="number">
+                        </div>
+                    </div>
+                    <div class="confirmaçao">
+                        <h2>Confirmação</h2>
+                        <p>Todas as vagas estão disponiveis!</p>
+                        <button>Pagamento</button>
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="buttom">
+            <button type="submit" id="btnenviar" class="envio">Enviar</button>
+        </div>
+
+        <footer class="rodape">
+            <p><img src="" alt=""> Empresa softpower</p>
+        </footer>
+
+    </article>
+
+    <script src="idex.js"></script>
+</body>
+</html>
