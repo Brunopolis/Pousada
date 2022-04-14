@@ -1,5 +1,6 @@
 from datetime import datetime
 semana = 0
+
 print('SISTEMA DE POUSADA')
 while True:
     preco = 0
@@ -23,7 +24,7 @@ while True:
                 while dif >= 7:
                     dif -= 7
                     semana += 1
-            print(f'Estadia de {semana} semana(s) e {dif} dia(s)')
+            print(f'\nEstadia de {semana} semana(s) e {dif} dia(s)')
 
             print(f"""
             Os planos disponíveis para quarto individual (R$ 200,00 - diária) são:
@@ -35,17 +36,54 @@ while True:
             pac = 'O melhor plano de pagamento com base no seu tempo de estadia é de '
 
             if(semana == 1 and dif < 5):
-                pac += f"1 pacote de 1 semana + pagamento de diárias individuais. Custando R$ {p1 + (200 * dif)},00"
+                preco = p1 + (200 * dif)
+                pac += f"1 pacote de 1 semana + pagamento de diárias individuais. Custando R$ {preco},00"
             elif(semana == 1):
+                preco = p2
                 pac += f'1 pacote de 2 semanas. Custando R$ 2380,00, tendo 15% de desconto.'
             elif(semana == 2 and dif < 7):
-                pac += f"1 pacote de 2 semanas + pagamento de diárias individuais. Custando R$ {p2 + (200 * dif)},00"
-            elif(semana == 3):
-                if dif == 0:
-                    pac += f"1 pacote de 2 semanas + 1 pacote de 1 semana. Custando R$ {p2 + p1},00"
-                else:
-                    if(dif <= 3):
-                        pac += f"1 pacote de 2 semanas + 1 pacote de 1 semana + diárias. Custando R$ {p2 + p1 + (200 * dif)},00"
-                    else:
-                        pac += f"1 pacote de 1 mês. Custando R$ 4500,00"
-            print(pac)
+                preco = p2 + (200 * dif)
+                pac += f"1 pacote de 2 semanas + pagamento de diárias individuais. Custando R$ {preco},00"
+            elif semana == 3 and dif == 0:
+                preco = p1 + p2
+                pac += f"1 pacote de 2 semanas + 1 pacote de 1 semana. Custando R$ {p2 + p1},00"
+            elif semana == 3 and dif <= 3:
+                pac += f"1 pacote de 2 semanas + 1 pacote de 1 semana + diárias. Custando R$ {p2 + p1 + (200 * dif)},00"
+            elif semana == 3 and dif > 3:
+                pac += f"1 pacote de 1 mês. Custando R$ 4500,00"
+            elif semana >= 4:
+                mes = 0
+                preco = 0
+                while semana >= 4:
+                    semana -= 4
+                    mes += 1
+                    preco += 4500
+                pac += f" {mes} pacote(s) de 1 mês "
+                if(semana == 1 and 0 < dif < 5):
+                    preco += (200 * dif)
+                    pac += f"e 1 pacote de 1 semana + pagamento de diárias individuais. Custando R$ {preco},00"
+            print(pac,end="\n")
+            r = int(input("Deseja contratar esse pacote? \n[1] Sim \n[2] Ver outras opções \nR: "))
+            print()
+            if r == 1:
+                print(f'Pacote de quarto individual contratado! \nData de entrada: {data_entrada} \nData de saída: {data_saida} \nValor a pagar: R$ {preco},00\n')
+            elif r == 2:
+                preco = 0
+                while True:
+                    print('Selecione os pacotes que deseja adicionar')
+                    r = int(input('[1] Diária (R$ 200,00) \n[2] 1 Semana (R$ 1400,00) \n[3] 2 Semanas (R$ 2380,00) \n[4] 1 Mês (R$ 4500,00) \n[0] Finalizar \nR: '))
+                    print()
+                    if r == 1:
+                        preco += 200
+                    elif r == 2:
+                        preco += 1400
+                    elif r == 3:
+                        preco += 2380
+                    elif r == 4:
+                        preco += 4500
+                    elif r == 0 and preco == 0:
+                        print('\nNenhum pacote contratado!\n')
+                        break
+                    elif r == 0:
+                        print(f'\nPacote de quarto individual contratado! \nData de entrada: {data_entrada} \nData de saída: {data_saida} \nValor a pagar: R$ {preco},00\n')
+                        break
